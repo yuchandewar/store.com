@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Travel Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .intro-text {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card-item {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            flex: 1 1 calc(25% - 20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #f39c12;
+            padding: 15px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #333;
+            padding: 0 15px;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            padding: 0 15px 20px;
+            color: #555;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .card-item {
+                flex: 1 1 calc(33.333% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-item {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-item {
+                flex: 1 1 100%;
+            }
+
+            .header-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- <h1 class="header-title">Accomplished</h1> -->
+        <!-- <p class="intro-text"></p> -->
+
+        <div class="card-grid">
+            <div class="card-item">
+                <a href="../Engineering India PCE/gallary/main-gallary.html?event=event7" target="_top">
+                <img class="card-image" src="gallary/event7/p2.jpg" alt="Chichen Itza"></a>
+                <h3 class="card-subtitle">Date: 26th July 2024</h3>
+                <h2 class="card-title">Kargil Vijay Diwas</h2>
+                <p class="card-description">Engineering India PCE organised the Guest lecture and flagshow on the campus of Priyadarshini College Of Engineering.</p>
+            </div>
+            <div class="card-item">
+                <a href="../Engineering India PCE/gallary/main-gallary.html?event=event5" target="_top">
+                <img class="card-image" src="gallary/event5/p1.jpg" alt="Colosseum Roma"></a>
+                <h3 class="card-subtitle">18 Aug, 2024</h3>
+                <h2 class="card-title">पुण्यश्लोक राजमाता अहिल्यादेवी होळकर ॥</h2>
+                <p class="card-description">On the occasion of 3rd century Punya shlok Ahilyadevi Holkar, mudra event conducted the drama.</p>
+            </div>
+            <div class="card-item">
+                <a href="../Engineering India PCE/gallary/main-gallary.html?event=event6" target="_top">
+                <img class="card-image" src="gallary/event6/p1.jpg" alt="Great Pyramid of Giza"></a>
+                <h3 class="card-subtitle"></h3>
+                <h2 class="card-title">Street Teaching</h2>
+                <p class="card-description">We used to visit the unprivileged students and contribute our knowledge to them and give them the accessories like notebooks, pen and pencils.</p>
+            </div>
+            <div class="card-item">
+                <a href="../Engineering India PCE/gallary/main-gallary.html?event=event2" target="_top">
+                <img class="card-image" src="gallary/event2/p1.jpg" alt="San Francisco"></a>
+                <h3 class="card-subtitle">Date: 29th & 31st march 2024</h3>
+                <h2 class="card-title">Science Exploratory invigilation</h2>
+                <p class="card-description"> It was been great experience to work as a invigilators and specially in exploratory. We also learn science theorem practically</p>
+            </div>
+            <!-- second Row -->
+
+            <div class="card-item">
+                <a href="../Engineering India PCE/gallary/main-gallary.html?event=event1" target="_top">
+                <img class="card-image" src="gallary/event1/p1.jpg" alt="Chichen Itza"></a>
+                <h3 class="card-subtitle">Date: 02 March 2023</h3>
+                <h2 class="card-title">Blood CheckUp Camp</h2>
+                <p class="card-description">Engineering India PCE organized Free Blood Checkup camp.</p>
+            </div>
+            <div class="card-item">
+                <a href="../Engineering India PCE/gallary/main-gallary.html?event=event3" target="_top">
+                <img class="card-image" src="gallary/event3/p1.jpg" alt="Colosseum Roma"></a>
+                <h3 class="card-subtitle">24rd Sept 2023</h3>
+                <h2 class="card-title">Nagpur Flood Relief Camp</h2>
+                <p class="card-description">Engineering India PCE team visited the flood influenced area and with the help of locality</p>
+            </div>
+            <div class="card-item">
+                <a href="../Engineering India PCE/gallary/main-gallary.html?event=event4" target="_top">
+                <img class="card-image" src="gallary/event4/p1.jpg" alt="Great Pyramid of Giza"></a>
+                <h3 class="card-subtitle">Date: 02, March 2023</h3>
+                <h2 class="card-title">Abhyudaya</h2>
+                <p class="card-description">Abhyudaya is one of the grand and prestigious events hosted by Engineering India.</p>
+            </div>
+            <div class="card-item">
+                <a href="../Engineering India PCE/gallary/main-gallary.html?event=event8" target="_top">
+                <img class="card-image" src="gallary/event8/p1.jpg" alt="San Francisco"></a>
+                <h3 class="card-subtitle">Weekly</h3>
+                <h2 class="card-title">Team Meets</h2>
+                <p class="card-description"> Weekly meets provide an opportunity for networking, knowledge-sharing, and collaboration on cutting-edge projects and research.</p>
+            </div>
+            
+            
+        </div>
+    </div>
+
+</body>
+</html>

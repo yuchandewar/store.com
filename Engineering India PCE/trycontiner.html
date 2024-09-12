@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Continuous Looping Slider</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
+        }
+
+        .slider-item {
+            padding: 20px;
+            flex: 0 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slider-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .slider-item h2 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .slider-item p {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* For navigation arrows */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .slider-arrow {
+            pointer-events: auto;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="slider-container">
+        <div class="slider">
+            <!-- Slider items will be inserted dynamically -->
+        </div>
+        
+        <!-- Navigation arrows -->
+        <div class="slider-nav">
+            <button class="slider-arrow prev">&larr;</button>
+            <button class="slider-arrow next">&rarr;</button>
+        </div>
+    </section>
+
+    <script>
+        // Configuration
+        const slider = document.querySelector('.slider');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentIndex = 0;
+        let autoSlideInterval;
+
+        // Array of slides (you can easily add more slides here)
+        const slides = [
+            {
+                image: 'https://www.engineeringindia.co.in/assets/images/socio%20tech%20flyer.png',
+                title: 'Ultimate Socio-Technocrat',
+                description: 'Participate in our Socio-Tech event to discuss the intersection of society and technology.',
+                link: 'https://www.engineeringindia.co.in/events.html'
+            },
+            {
+                image: 'p1.jpg',
+                title: 'Speech - वाक यज्ञः',
+                description: 'Showcase your speaking skills at our upcoming speech competition. All are welcome to join!',
+                link: 'https://www.engineeringindia.co.in/events.html'
+            },
+            {
+                image: 'p2.jpg',
+                title: 'Pragyan Lecture Series',
+                description: 'Attend insightful lectures by industry experts on various topics. Expand your knowledge!',
+                link: 'https://www.engineeringindia.co.in/events.html'
+            },
+            {
+                image: 'p3.jpg',
+                title: 'Drawing Competition',
+                description: 'Show your creativity in our drawing competition. Open to all ages and skill levels!',
+                link: 'https://www.engineeringindia.co.in/events.html'
+            },
+            {
+                image: 'p4.jpg',
+                title: 'Treasure hunt - Advaya Shodh',
+                description: 'Join us for an exciting treasure hunt event where participants will explore hidden treasures.',
+                link: 'https://www.engineeringindia.co.in/events.html'
+            },
+            {
+                image: 'p7.jpg',
+                title: 'Drama - Natrang',
+                description: "Experience an evening of captivating performances in our drama event. Don't miss out!",
+                link: 'https://www.engineeringindia.co.in/events.html'
+            },
+            {
+                image: 'https://www.engineeringindia.co.in/assets/images/socio%20tech%20flyer.png',
+                title: 'Ultimate Socio-Technocrat',
+                description: 'Participate in our Socio-Tech event to discuss the intersection of society and technology.',
+                link: 'https://www.engineeringindia.co.in/events.html'
+            },
+           
+        ];
+
+        // Function to generate slide elements dynamically
+        function generateSlides() {
+            slides.forEach(slide => {
+                const slideItem = document.createElement('div');
+                slideItem.classList.add('slider-item');
+                slideItem.innerHTML = `
+                    <a href="${slide.link}" target="_top">
+                        <img src="${slide.image}" alt="${slide.title}">
+                    </a>
+                    <h2>${slide.title}</h2>
+                    <p>${slide.description}</p>
+                `;
+                slider.appendChild(slideItem);
+            });
+        }
+
+        // Generate slides
+        generateSlides();
+
+        // Number of total items
+        const totalItems = slides.length;
+
+        // Detect screen size and adjust visible slides
+        function getVisibleSlidesCount() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth >= 1440) {
+                return 4; // Show 4 slides on extra-large screens
+            } else if (screenWidth >= 1024) {
+                return 3; // Show 3 slides on large screens
+            } else if (screenWidth >= 768) {
+                return 2; // Show 2 slides on medium screens
+            } else {
+                return 1; // Show 1 slide on small screens
+            }
+        }
+
+        // Function to update slider position and adjust width of slides dynamically
+        function updateSlider() {
+            const visibleSlides = getVisibleSlidesCount();
+            const itemWidth = slider.clientWidth / visibleSlides;
+            document.querySelectorAll('.slider-item').forEach(item => {
+                item.style.width = `${itemWidth}px`;
+            });
+            slider.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+        }
+
+        // Auto slide function
+        function autoSlide() {
+            const visibleSlides = getVisibleSlidesCount();
+            currentIndex = (currentIndex + 1) % (totalItems - visibleSlides + 1);
+            updateSlider();
+        }
+
+        // Set auto-slide interval
+        autoSlideInterval = setInterval(autoSlide, 5000);
+
+        // User navigation functionality
+        prevButton.addEventListener('click', () => {
+            const visibleSlides = getVisibleSlidesCount();
+            currentIndex = (currentIndex - 1 + totalItems - visibleSlides + 1) % (totalItems - visibleSlides + 1);
+            updateSlider();
+        });
+
+        nextButton.addEventListener('click', () => {
+            const visibleSlides = getVisibleSlidesCount();
+            currentIndex = (currentIndex + 1) % (totalItems - visibleSlides + 1);
+            updateSlider();
+        });
+
+        // Handle window resizing to adjust slider dynamically
+        window.addEventListener('resize', updateSlider);
+
+        // Start slider on page load
+        window.onload = updateSlider;
+    </script>
+
+</body>
+</html>

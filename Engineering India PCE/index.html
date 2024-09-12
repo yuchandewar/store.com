@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering India PCE</title>
+    <link rel="icon" type="image/x-icon" href="source/logo.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Fullscreen hero video section */
+        
+        .video-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Video should fill the entire section */
+        .video-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Overlay for text content */
+        .video-section .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 1;
+        }
+
+        .video-section h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .video-section p {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .video-section a {
+            background-color: #FF6F00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .video-section a:hover {
+            background-color: #28a745;
+        }
+
+        /* Responsive font sizes */
+        @media (max-width: 1200px) {
+            .video-section h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .video-section h1 {
+                font-size: 3rem;
+            }
+
+            .video-section p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .video-section p {
+                font-size: 1rem;
+            }
+
+            .video-section a {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .video-section h1 {
+                font-size: 2rem;
+            }
+
+            .video-section p {
+                font-size: 0.9rem;
+            }
+
+            .video-section a {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+
+    </style>
+      <style>
+        body {
+          font-family: 'Poppins', sans-serif;
+          background-color: #f0f0f0;
+        }
+    
+        /* Culturally vibrant theme */
+        .theme-orange {
+          background-color: #FF6F00;
+          color: white;
+        }
+    
+        .theme-green {
+          background-color: #FF6F00;
+          color: white;
+        }
+    
+        .text-green {
+          color: #FF6F00;
+        }
+    
+        /* Padding and alignment */
+        section {
+          padding: 60px 0;
+        }
+    
+        /* Hero Section */
+        .hero-section {
+          height: 100vh;
+          background: url('https://www.travellersofindia.com/wp-content/uploads/2021/05/The_Unique_Culture_of_India_5_Major_Traditions__Indian_Customs_TravellersofIndia.jpg') center center/cover no-repeat;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+    
+        .hero-section h1 {
+          font-size: 4rem;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+          animation: slideInLeft 2s;
+        }
+    
+        .card:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s;
+        }
+    
+        /* Keyframe animation */
+        @keyframes slideInLeft {
+          0% {
+            transform: translateX(-100%);
+            opacity: 0;
+          }
+    
+          100% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+    
+        .fade-in-up {
+          opacity: 0;
+          animation: fadeInUp 1.5s forwards;
+        }
+    
+        @keyframes fadeInUp {
+          0% {
+            transform: translateY(50px);
+            opacity: 0;
+          }
+    
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      </style>
+
+<style>
+  /* Responsive iframe container */
+  .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+  }
+
+  .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+  }
+  button:hover{
+    color: #FF6F00;
+    background-color: #f3a413;
+  }
+</style>
+
+<style>
+    .button {
+      background-color: #FF6F00;
+      color: #ffffff;
+      border-radius: 10px;
+      border: none;
+      width: 30vh;
+      height: 50px;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+  
+    /* Hover Effect */
+    .button:hover {
+      background-color: #ff8a00;
+      transform: scale(1.05);
+    }
+  
+    /* Responsive Media Query */
+    @media (max-width: 768px) {
+      .button {
+        width: 40vh;
+        font-size: 1.2rem;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .button {
+        width: 25vh;
+        font-size: 1rem;
+        height: 40px;
+      }
+    }
+  </style>
+      
+</head>
+
+<body>
+
+
+    <header data-bs-theme="tiranga">
+        <!-- Collapse Section -->
+        <div class="collapse text-bg-dark" id="navbarHeader" style="background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-md-7 py-4">
+                <h4 style="color: white; font-weight: bold;">About</h4>
+                <p class="text-body-primary"  style="color: rgb(177, 37, 37);">
+                  <b>Engineering India is a collaborative platform that brings together engineers from various disciplines with the shared goal of promoting community welfare. This platform provides a unique and supportive space for professionals to not only showcase their skills but also to refine and enhance them through meaningful contributions that have a significant impact on society.</b>
+                </p>
+              </div>
+              <div class="col-sm-4 offset-md-1 py-4">
+                <h4 style="color: white; font-weight: bold;">Contact</h4>
+                <ul class="list-unstyled">
+                  <li ><a href="https://www.instagram.com/engineering_india_pce?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text" style="color: rgb(177, 37, 37);">Follow on Instagram</a></li>
+                  <li><a href="mailto:engineeringindiapce@gmail.com" class="text" style="color: rgb(177, 37, 37);">Email me</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Navbar Section -->
+        <div class="navbar navbar-dark" style="background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808); box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);">
+          <div class="container d-flex align-items-center justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <img src="source/logo.png" width="40" height="40" aria-hidden="true" class="me-2">
+              <b style="color: rgb(177, 37, 37); ">ENGINEERING INDIA PCE</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 5px;">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+      
+
+<style>
+    .contain a{
+         background-color: #FF6F00;
+      color: #ffffff;
+      border-radius: 10px;
+      border: none;
+      width: 30vh;
+      height: 50px;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .contain a:hover {
+      background-color: #ff8a00;
+      transform: scale(1.05);
+    }
+  
+    /* Responsive Media Query */
+    @media (max-width: 768px) {
+        .contain a {
+        width: 40vh;
+        font-size: 1.2rem;
+      }
+    }
+  
+    @media (max-width: 480px) {
+        .contain a {
+        width: 25vh;
+        font-size: 1rem;
+        height: 40px;
+      }
+    }
+  </style>
+
+</style>
+
+    <section class="video-section">
+        <!-- Example video (can be replaced with another video from the internet) -->
+        <video autoplay muted loop>
+            <source src="istockphoto-1266309021-640_adpp_is.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+            <div class="container" >
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                <h class="topics" style="color: #FF6F00; font-size: 6vh; font-weight: bolder;" > WELCOME To Engineering India PCE
+                </h1><br>
+                <p> <h3 style="color: #ffffff; font-weight: bolder; ">Engineering India is a central club dedicated  to connecting engineers and tech enthusiasts
+                    across India, driving collaborative efforts to better society through technology and
+                    innovation.</h3>  </p>
+                    
+                    <div class="contain justify-content-center">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZWZKDKcq-93j9TIXNKiFWle0pNNaIhPvp4t59w5GIG2eX2A/viewform?pli=1" target="_top">JOIN US NOW!</a>
+                      
+                
+                </div>
+                <div class="col-md-6 col-12">
+                    
+                        
+
+                </div>
+            </div>
+        </div>
+       
+
+        <div class="content">
+
+
+         
+        </div>
+    </section>
+
+    
+    
+
+    <div class="container">
+      <div class="row justify-content-center my-5">
+          <div class="col-12">
+              <h1 class="text-center mb-4" style="color: #FF6F00; font-weight: bolder; justify-content: left; display: flex;">Events</h1>
+              <div class="embed-responsive embed-responsive-16by9">
+                
+                  <iframe class="embed-responsive-item" src="contain.html" style="border:0; width:100%; height: 330px;"></iframe>
+                
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+  <!-- Gallery Section -->
+
+  <style>
+    .scroll-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent wrapping */
+        padding: 20px 0; /* Add some padding for visual spacing */
+    }
+
+    .scroll-item {
+        display: inline-block; /* Ensure iframe is inline with container */
+        min-width: 100%; /* Full width for each item */
+    }
+
+    .iframe-wrapper {
+        width: 100%; /* Full width for iframe */
+        height: 430px; /* Set fixed height */
+    }
+
+    h1 {
+        color: #FF6F00;
+        font-weight: bolder;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center my-5">
+        <div class="col-12">
+            <h1 class="text-center mb-4">Accomplished</h1>
+            <div class="scroll-container">
+                <div class="scroll-item">
+                    <iframe class="iframe-wrapper" src="success.html" style="border:0;"></iframe>
+                </div>
+                <!-- Add more scroll-items if needed for additional content -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section>
+
+   
+        <style>
+            .faq-section {
+                background-color: #f9f9f9;
+                padding: 60px 0;
+            }
+    
+            .faq-title {
+                text-align: center;
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 40px;
+                color: #28a745;
+            }
+    
+            .accordion-button:not(.collapsed) {
+                background-color: #28a745;
+                color: #fff;
+            }
+    
+            .accordion-button {
+                font-weight: bold;
+            }
+    
+            .accordion-body {
+                font-size: 1.1rem;
+            }
+    
+            .faq-section .card {
+                border: none;
+                margin-bottom: 15px;
+            }
+    
+            .faq-section .card-header {
+                background-color: transparent;
+                border: none;
+            }
+        </style>
+    
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h1 style="font-weight: bolder; color: #FF6F00;" >FAQ's</h1>
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1Heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                                What is Engineering India?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" aria-labelledby="faq1Heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Engineering India is a central club dedicated to connecting engineers and tech enthusiasts
+                                across India, driving collaborative efforts to better society through technology and
+                                innovation.
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- FAQ 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2Heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                How can I join Engineering India?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2Heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                You can join by visiting our <a href="#">Join Us</a> page, filling out a simple form, and
+                                participating in our various events and programs.
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- FAQ 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3Heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                What benefits do I get from joining?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3Heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                As a member, you'll gain access to exclusive workshops, networking opportunities, project
+                                collaborations, and mentorship from experienced professionals in the industry.
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- FAQ 4 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq4Heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                Does Engineering India host events?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4Heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes! We regularly host workshops, hackathons, webinars, and meetups for members to learn and
+                                collaborate on various engineering and technology topics.
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- FAQ 5 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq5Heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                                Is there a membership fee to join?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5Heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Currently, Engineering India offers free membership. However, some events or workshops may
+                                have a nominal fee to cover costs.
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        
+    
+        </section>
+
+  </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+    <footer>
+
+        <style>
+            /* Footer Styling */
+            .footer {
+                background: linear-gradient(180deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+                color: white;
+                padding: 40px 0;
+            }
+    
+            .footer .footer-title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+    
+            .footer .footer-links a {
+                color: #ffffff;
+                display: block;
+                margin-bottom: 10px;
+                text-decoration: none;
+            }
+    
+            .footer .footer-links a:hover {
+                color: #FF6F00;
+                font-weight: bolder;
+            }
+    
+            .footer .social-icons a {
+                margin-right: 15px;
+                color: #ffffff;
+                font-size: 1.5rem;
+            }
+    
+            .footer .social-icons a:hover {
+                color: #FF6F00;
+            }
+    
+            .footer .copyright {
+                border-top: 1px solid #ffffff;
+                padding-top: 20px;
+                text-align: center;
+                font-size: 0.9rem;
+                color: #ffffff;
+            }
+    
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .footer .footer-title {
+                    text-align: center;
+                }
+    
+                .footer .footer-links {
+                    text-align: center;
+                }
+    
+                .footer .social-icons {
+                    text-align: center;
+                }
+            }
+        </style>
+    
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- About Us Section -->
+                    <div class="col-md-6">
+                        <h3 class="footer-title" style="color: #ffffff; font-weight: bolder; font-size: 200%;">About Engineering India</h3>
+                        <p style="color: rgb(177, 37, 37); ">Engineering India is a platform that connects engineers and tech enthusiasts across the country,
+                            fostering innovation, collaboration, and societal betterment through technology.</p>
+                    </div>
+    
+                    <div class="col-md-6">
+                        <h3 class="footer-title" style="color: rgb(255, 255, 255); font-weight: bolder; font-size: 200%;">Follow us</h3>
+                        <div class="footer-links">
+                            <a href="https://www.instagram.com/engineering_india_pce?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" style="color: rgb(177, 37, 37);">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Copyright Section -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyright">
+                            <p>&copy; 2024 Engineering India. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </footer>
+    
+  
+
+</footer>
+
+
+
+
+</body>
+
+</html>
